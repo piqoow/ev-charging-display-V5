@@ -1,29 +1,24 @@
 <?php
-// Konfigurasi database
 $servername = "localhost";
 $username = "rnd";
 $password = "rahasia123";
 $dbname = "ev_charging_db";
 
-// Buat koneksi
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Cek koneksi
 if ($conn->connect_error) {
     die("Koneksi gagal: " . $conn->connect_error);
 }
 
 $id = $_GET['id'];
-// Ambil URL video dari database
-$sql = "SELECT video_iklan FROM evgate WHERE customer_id = '$id'"; // Sesuaikan dengan ID yang relevan
+$sql = "SELECT video_iklan FROM evgate WHERE customer_id = '$id'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
-    // Ambil URL video
     $row = $result->fetch_assoc();
     $videoUrl = $row['video_iklan'];
 } else {
-    $videoUrl = ''; // URL default atau pesan kesalahan jika tidak ada hasil
+    $videoUrl = ''; 
 }
 
 $conn->close();
