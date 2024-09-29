@@ -1,0 +1,207 @@
+.battery-copy {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100px;
+    width: 50px;
+    border-radius: 15px 15px 5px 5px;
+    overflow: hidden;
+    margin-left: 580px;
+    margin-top: 280px;
+    background-color: #fff;
+}
+
+.battery-copy-1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100px;
+    width: 50px;
+    border-radius: 15px 15px 5px 5px;
+    overflow: hidden;
+    margin-left: 100px;
+    margin-top: 280px;
+    background-color: #fff;
+}
+
+.battery-off-copy {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100px;
+    width: 50px;
+    border-radius: 15px 15px 5px 5px;
+    overflow: hidden;
+    margin-left: 580px;
+    margin-top: 280px;
+    background-color: #fff;
+}
+
+.battery-off-full {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100px;
+    width: 50px;
+    border-radius: 15px 15px 5px 5px;
+    overflow: hidden;
+    margin-left: 580px;
+    margin-top: 280px;
+    background-color: #59981A;
+}
+
+.battery-off-copy-1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100px;
+    width: 50px;
+    border-radius: 15px 15px 5px 5px;
+    overflow: hidden;
+    margin-left: 100px;
+    margin-top: 280px;
+    background-color: #fff;
+}
+
+.battery-off-full-1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100px;
+    width: 50px;
+    border-radius: 15px 15px 5px 5px;
+    overflow: hidden;
+    margin-left: 100px;
+    margin-top: 280px;
+    background-color: #59981A;
+}
+
+.battery {
+    position: relative;
+    height: 220px;
+    box-sizing: border-box;
+    border-radius: 15px 15px 5px 5px;
+    background: #fff;
+    z-index: 1;
+    
+    &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 120%;
+        border-radius: 15px 15px 5px 5px;
+        box-shadow: 0 5px 28px #7abcff;
+        animation: charging 10s linear infinite;
+        filter: hue-rotate(90deg);
+    }
+}
+
+.g-wave {
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    background: rgba(255, 255, 255, .8);
+    border-radius: 45% 47% 44% 42%;
+    top: 230px;
+    left: 50%;
+    filter: hue-rotate(90deg);
+    background: linear-gradient(to bottom, #ECF87F 0%, #81B622 44%, #59981A 100%);
+    transform: translate(-50%, 0);
+    z-index: 1;
+    animation: move 10s linear infinite;
+}
+
+.g-wave-2 {
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    background: rgba(255, 255, 255, .8);
+    border-radius: 45% 47% 44% 42%;
+    top: 230px;
+    left: 50%;
+}
+
+.g-wave:nth-child(2) {
+    border-radius: 38% 46% 43% 47%;
+    transform: translate(-50%, 0) rotate(-135deg);
+}
+
+.g-wave:nth-child(3) {
+    border-radius: 42% 46% 37% 40%;
+    transform: translate(-50%, 0) rotate(135deg);
+}
+
+@keyframes charging {
+    100% {
+        filter: hue-rotate(0deg);
+        top: 0%;
+    }
+}
+
+@keyframes move {
+    100% {
+        filter: hue-rotate(0deg);
+        transform: translate(-50%, -260px) rotate(720deg);
+    }
+}
+
+// $width: 100px;
+// $height: $width * 1.5;
+// .battery-eve {
+//   height: $height;
+//   width: $width;
+//   background: transparent;
+//   border-radius: 2px;
+//   border: 5px solid var(--primary);
+//   position: relative;
+
+//   &:before {
+//     content: '';
+//     height: $width / 2px * 0.6px;
+//     width: $width / 2px * 1px;
+//     background: var(--primary);
+//     position: absolute;
+//     bottom: 100%;
+//     left: 50%;
+//     transform: translate(-50%, 0);
+//     border-radius: 2px;
+//   }
+
+//   &:after {
+//     animation: battery-charge 1s infinite steps(6);
+//     background: linear-gradient(0deg, transparent, transparent 5%, var(--primary) 5%, var(--primary) 19%, transparent 19%, transparent 24%, var(--primary) 24%, var(--primary) 38%, transparent 38%, transparent 43%, var(--primary) 43%, var(--primary) 57%, transparent 57%, transparent 62%, var(--primary) 62%, var(--primary) 76%, transparent 76%, transparent 81%, var(--primary) 81%, var(--primary) 95%, transparent 95%);
+//     content: '';
+//     height: 100%;
+//     left: 50%;
+//     position: absolute;
+//     top: 0;
+//     transform: translate(-50%, 0);
+//     width: $width * 0.75;
+//   }
+// }
+
+// @keyframes battery-charge {
+//   0% {
+//     clip-path: inset(100% 0 0 0);
+//   }
+//   100% {
+//     clip-path: inset(-18% 0 0 0);
+//   }
+// }
+
+// body {
+//   --primary: #fff;
+//   min-height: 100vh;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   background: #663399;  
+// }
+
+// *,
+// *:after,
+// *:before {
+//   box-sizing: border-box;
+// }

@@ -1,0 +1,1 @@
+http://localhost/ev-charging-display-V5/index-potrait.php?id=ev03
