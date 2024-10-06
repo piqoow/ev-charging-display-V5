@@ -9,7 +9,7 @@
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'ev_charging_db');
 define('DB_CHARSET', 'utf8');
-define('DB_USER', 'rnd');
+define('DB_USER', 'smartpay');
 define('DB_PASSWORD', 'smartpay@DEV');
 set_time_limit(30); // Set the appropriate time limit
 ignore_user_abort(false); // Stop when polling breaks

@@ -1,13 +1,18 @@
 <?php
-require_once('../db/connection.php'); // Include the connection file
+$servername = "localhost";
+$username = "smartpay";
+$password = "smartpay@DEV";
+$dbname = "ev_charging_db";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Koneksi gagal: " . $conn->connect_error);
+}
 
 $id = $_GET['id'];
-
-// Use prepared statements to prevent SQL injection
-$sql = $conn->prepare("SELECT video_iklan FROM evgate WHERE customer_id = ?");
-$sql->bind_param("s", $id);
-$sql->execute();
-$result = $sql->get_result();
+$sql = "SELECT video_iklan FROM evgate WHERE customer_id = '$id'";
+$result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
@@ -16,9 +21,5 @@ if ($result->num_rows > 0) {
     $videoUrl = ''; 
 }
 
-$sql->close();
 $conn->close();
-
-// Output the video URL (optional)
-echo json_encode(array("videoUrl" => $videoUrl));
 ?>
