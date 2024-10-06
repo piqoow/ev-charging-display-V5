@@ -1,1 +1,1 @@
-http://localhost/ev-charging-display-V5/index-potrait.php?id=ev03
+http://localhost/ev-charging-display-V5/index-wsdelta-ads-qr-db.php?id=EV01
