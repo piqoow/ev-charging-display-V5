@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
-$username = "rnd";
-$password = "rahasia123";
+$username = "smartpay";
+$password = "smartpay@DEV";
 $database = "ev_charging_db";
 
 $conn = new mysqli($servername, $username, $password, $database);
