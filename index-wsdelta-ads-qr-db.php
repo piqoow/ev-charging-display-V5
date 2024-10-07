@@ -264,7 +264,7 @@ echo '<script> var id = "' . $id . '";</script>';
             $('.description-line').removeClass('description-line-hide').addClass('.description-line'); 
             $('.charging-block').removeClass('charging-block-hide').addClass('.charging-block');
             $('.custom-btn').removeClass('custom-btn-hide').addClass('.custom-btn');
-	    $('.header').removeClass('header-run').addClass('header-idle'); //updatedev                            
+	        $('.header').removeClass('header-run').addClass('header-idle'); //updatedev                            
             // document.getElementById('qr').style.display = 'none';
             flagStopwatch = false;
             //refreshPage(); //ubah

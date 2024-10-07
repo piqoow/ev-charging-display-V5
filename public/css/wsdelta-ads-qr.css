@@ -71,7 +71,7 @@
   margin-top: -21.5%;
   margin-left: 23%;
   background-image: url("http://localhost/ev-charging-display-V5/images/bg-idle.png");
-  background-image: url("http://112.0.47.30/ev-charging-display-V5/images/bg-idle.png");
+  background-image: url("/ev-charging-display-V5/images/bg-idle.png");
   background-repeat: no-repeat;
 }
 
@@ -81,7 +81,7 @@
   width: 730px;
   height: 1315px;
   background-image: url("http://localhost/ev-charging-display-V5/images/bg-animation.gif"); /*ubah*/
-  background-image: url("http://112.0.47.30/ev-charging-display-V5/images/bg-animation.gif"); 
+  background-image: url("/ev-charging-display-V5/images/bg-animation.gif"); 
   background-repeat: no-repeat;
 }
 
