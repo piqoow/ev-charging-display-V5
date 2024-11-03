@@ -338,7 +338,7 @@ function insertDelta() {
         type: "POST",
         url: "api/selecttoinsert.php",
         data: {
-                // ev_id: id,
+                id: id,
                 // kwh: kwh,
                 time: time
             },
