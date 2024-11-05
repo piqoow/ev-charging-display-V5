@@ -7,14 +7,14 @@ function logUpdateParkee($id) {
     $pdoDB = new DB();
     $pdoDB->stmt = $pdoDB->pdo->prepare("UPDATE evgate
                                          SET parkee_service = 'OFF'
-                                         WHERE ev_id = '$id';");
+                                         WHERE customer_id = '$id';");
     return $pdoDB->stmt->execute();
 }
 
 function getEvClientId($id) {
     $pdoDB = new DB();
     
-    $pdoDB->stmt = $pdoDB->pdo->prepare("SELECT serial_number FROM evgate WHERE ev_id = '$id';");
+    $pdoDB->stmt = $pdoDB->pdo->prepare("SELECT serial_number FROM evgate WHERE customer_id = '$id';");
     $pdoDB->stmt->execute();
 
     $result = $pdoDB->stmt->fetch(PDO::FETCH_ASSOC);
