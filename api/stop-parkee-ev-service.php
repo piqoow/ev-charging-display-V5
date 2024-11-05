@@ -1,6 +1,8 @@
 <?php
 require_once('../db/connection.php');
 
+$id = $_POST['id'];
+
 function logUpdateParkee($id) {
     $pdoDB = new DB();
     $pdoDB->stmt = $pdoDB->pdo->prepare("UPDATE evgate
@@ -57,7 +59,6 @@ function callApiStopCharge($evClientId) {
     return $response;
 }
 
-$id = $_POST['id'];
 
 $update = logUpdateParkee($id);
 
