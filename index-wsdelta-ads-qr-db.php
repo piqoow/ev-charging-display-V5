@@ -221,6 +221,7 @@ echo '<script> var id = "' . $id . '";</script>';
             updateEvgateCalled = true;
         } else if (data['charger-status'] === 'Preparing' || data['charger-status'] === 'Available' && updateEvgateCalled === true) { //kondisi standby
             insertDelta();
+            stopParkeeService();
             $('#status_btn').html('Charging Ready...'); //dev
             $('#kwh').html('0.00 kWh');
             $('#time').html(`00:00:00`);
@@ -240,6 +241,7 @@ echo '<script> var id = "' . $id . '";</script>';
                 document.getElementById('fullpage').style.display = 'block';
                 document.getElementById('chargingpage').style.display = 'none';
                 get_data_logcharging();
+                startParkeeService();
 		$('#status_btn').html(`Finish Charging...`);
 	   $('.header').removeClass('header-run').addClass('header-idle'); //updatedev                            
 
@@ -255,6 +257,7 @@ echo '<script> var id = "' . $id . '";</script>';
             }
         } else if (data['charger-status'] === 'SuspendedEV' || data['charger-status'] === 'Unavailable' && updateEvgateCalled === true) { //kondisi standby
             insertDelta();
+            stopParkeeService();
             $('#status_btn').html('Charging Ready...'); //dev
             $('#kwh').html('0.00 kWh');
             $('#time').html(`00:00:00`);
@@ -274,6 +277,7 @@ echo '<script> var id = "' . $id . '";</script>';
                 document.getElementById('fullpage').style.display = 'block';
                 document.getElementById('chargingpage').style.display = 'none';
                 get_data_logcharging();
+                startParkeeService();
 		$('#status_btn').html(`Finish Charging...`);
 	   $('.header').removeClass('header-run').addClass('header-idle'); //updatedev                            
 
@@ -289,6 +293,7 @@ echo '<script> var id = "' . $id . '";</script>';
             }
         } else if (data['charger-status'] === 'Preparing' || data['charger-status'] === 'Available' && updateEvgateCalled === false) {
             //ads new
+            stopParkeeService();
             $('#status_btn').html('Charging Ready...');
             $('#kwh').html('0.00 kWh');
             $('#time').html(`00:00:00`);
@@ -360,6 +365,38 @@ function handleTimeout() {
     // Contoh: mencoba untuk melakukan koneksi ulang
     location.reload(true);
 }
+
+    function stopParkeeService() {
+        $.ajax({
+            type: "POST",
+            url: "api/stop-parkee-ev-service.php",
+            data: {
+                id: id
+            },
+            success: function(response) {
+                console.log(response);
+            },
+            error: function(error) {
+                console.error("AJAX request failed:", error);
+            }
+        });
+    }
+
+    function startParkeeService() {
+        $.ajax({
+            type: "POST",
+            url: "api/start-parkee-ev-service.php",
+            data: {
+                id: id
+            },
+            success: function(response) {
+                console.log(response);
+            },
+            error: function(error) {
+                console.error("AJAX request failed:", error);
+            }
+        });
+    }
 
     function insertDelta() {
         var time = document.getElementById('time').innerHTML;
