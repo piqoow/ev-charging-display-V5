@@ -381,7 +381,7 @@ function handleTimeout() {
             }
         });
     }
-
+ 
     function startParkeeService() {
         $.ajax({
             type: "POST",
