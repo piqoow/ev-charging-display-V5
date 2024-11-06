@@ -44,6 +44,7 @@ INSERT INTO `charging_status` (`id_status`, `ev_id`, `status`, `voltase`, `arus`
 
 SET NAMES utf8mb4;
 
+DROP TABLE IF EXISTS `evgate`;
 CREATE TABLE `evgate` (
   `evgate_id` int(11) NOT NULL AUTO_INCREMENT,
   `customer_id` varchar(50) DEFAULT NULL,
@@ -62,7 +63,12 @@ CREATE TABLE `evgate` (
   `time` time DEFAULT NULL,
   `updated_log` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`evgate_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+INSERT INTO `evgate` (`evgate_id`, `customer_id`, `qr_code`, `ip_address`, `serial_number`, `video_iklan`, `charger_status`, `voltage`, `current`, `power`, `energy`, `insert_status`, `status_code`, `parkee_service`, `time`, `updated_log`) VALUES
+(1,	'EV01',	'non',	'110.0.50.55',	'SM413e46eb377918',	'TutorialBluechargeV3',	'Available',	'227.2',	'0.05',	'0',	'0.0 kWh',	'1',	NULL,	'OFF',	'00:00:00',	'2024-11-06 04:21:48'),
+(2,	'EV02',	'ev02',	'111.0.51.21',	NULL,	'TutorialBluechargeV3',	'Unavailable',	'0',	'0',	'0',	'0.0 kWh',	'1',	NULL,	'OFF',	'00:00:00',	'2024-08-14 06:38:01');
+
 
 INSERT INTO `evgate` (`evgate_id`, `customer_id`, `qr_code`, `ip_address`, `serial_number`, `video_iklan`, `charger_status`, `voltage`, `current`, `power`, `energy`, `insert_status`, `status_code`, `parkee_service`, `time`, `updated_log`) VALUES
 (1,	'EV01',	'ev01',	'111.0.51.21',	NULL,	'TutorialBluechargeV3',	'Unavailable',	'0',	'0',	'0',	'0.0 kWh',	'1',	NULL,	NULL,	'00:00:00',	'2024-11-05 09:53:38'),
