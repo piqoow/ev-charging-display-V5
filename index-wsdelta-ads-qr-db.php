@@ -206,6 +206,7 @@ echo '<script> var id = "' . $id . '";</script>';
         }
 
         if (data['charger-status'] === 'Charging') {
+            stopParkeeService();
             $('#status_btn').html(`Charging ${data.voltage} Volt..`);
             $('#kwh').html(fixedRoundedEnergy + ' kWh');
             $('#power').html(` ${fixedroundedinpower} kw`);
@@ -221,7 +222,6 @@ echo '<script> var id = "' . $id . '";</script>';
             updateEvgateCalled = true;
         } else if (data['charger-status'] === 'Preparing' || data['charger-status'] === 'Available' && updateEvgateCalled === true) { //kondisi standby
             insertDelta();
-            stopParkeeService();
             $('#status_btn').html('Charging Ready...'); //dev
             $('#kwh').html('0.00 kWh');
             $('#time').html(`00:00:00`);
@@ -257,7 +257,6 @@ echo '<script> var id = "' . $id . '";</script>';
             }
         } else if (data['charger-status'] === 'SuspendedEV' || data['charger-status'] === 'Unavailable' && updateEvgateCalled === true) { //kondisi standby
             insertDelta();
-            stopParkeeService();
             $('#status_btn').html('Charging Ready...'); //dev
             $('#kwh').html('0.00 kWh');
             $('#time').html(`00:00:00`);
@@ -293,7 +292,6 @@ echo '<script> var id = "' . $id . '";</script>';
             }
         } else if (data['charger-status'] === 'Preparing' || data['charger-status'] === 'Available' && updateEvgateCalled === false) {
             //ads new
-            stopParkeeService();
             $('#status_btn').html('Charging Ready...');
             $('#kwh').html('0.00 kWh');
             $('#time').html(`00:00:00`);

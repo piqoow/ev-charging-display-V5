@@ -184,6 +184,7 @@ console.log(formattedChargingTime);
 
 
 if (data['charger-status'] === 'Charging') { // 2 > kondisi charging
+    stopParkeeService();
     $('#status_btn').html(`Charging ${data.voltage} Volt..`);
     $('#kwh').html(fixedRoundedEnergy + ' kWh');
     $('#power').html(` ${fixedroundedinpower} kw`);
@@ -205,6 +206,7 @@ if (data['charger-status'] === 'Charging') { // 2 > kondisi charging
     flagStopwatch = false;
     if (updateEvgateCalled === true) { // pada saat kondisi charging ke standby akan update dan insert data charging 
         // insertDelta();
+    startParkeeService();
         document.getElementById('fullpage').style.display = 'block';
         document.getElementById('chargingpage').style.display = 'none';
         get_data_logcharging();
@@ -233,6 +235,7 @@ if (data['charger-status'] === 'Charging') { // 2 > kondisi charging
     flagStopwatch = false;
     if (updateEvgateCalled === true) { // pada saat kondisi charging ke standby akan update dan insert data charging 
         // insertDelta();
+        startParkeeService();
         document.getElementById('fullpage').style.display = 'block';
         document.getElementById('chargingpage').style.display = 'none';
         get_data_logcharging();
@@ -314,6 +317,37 @@ function handleTimeout() {
     location.reload(true);
 }
 
+function stopParkeeService() {
+        $.ajax({
+            type: "POST",
+            url: "api/stop-parkee-ev-service.php",
+            data: {
+                id: id
+            },
+            success: function(response) {
+                console.log(response);
+            },
+            error: function(error) {
+                console.error("AJAX request failed:", error);
+            }
+        });
+    }
+ 
+    function startParkeeService() {
+        $.ajax({
+            type: "POST",
+            url: "api/start-parkee-ev-service.php",
+            data: {
+                id: id
+            },
+            success: function(response) {
+                console.log(response);
+            },
+            error: function(error) {
+                console.error("AJAX request failed:", error);
+            }
+        });
+    }
 
 function refreshAt(hours, minutes, seconds) {
     var now = new Date();
