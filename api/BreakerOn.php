@@ -1,26 +1,30 @@
 <?php
-require_once('vendor/autoload.php');
+var socket = new WebSocket("ws://localhost");
 
-use WebSocket\Client;
+socket.onopen = function() {
+  alert("The connection is established.");
+};
 
-try {
-    // Buat koneksi WebSocket client
-    $client = new Client("ws://110.0.50.55:3001/websocket");
+socket.onclose = function(event) {
+  if (event.wasClean) {
+    alert('Connection closed cleanly');
+  } else {
+    alert('Broken connections'); 
+  }
+  alert('Key: ' + event.code + ' cause: ' + event.reason);
+};
 
-    // Pesan yang akan dikirim
-    $message = "setr=0";
+socket.onmessage = function(event) {
+  alert("The data " + event.data);
+};
 
-    // Kirim pesan
-    $client->send($message);
+socket.onerror = function(error) {
+  alert("Error " + error.message);
+};
 
-    // Terima respons dari server
-    $response = $client->receive();
-    echo "Respons dari server: " . $response . "\n";
 
-    // Tutup koneksi
-    $client->close();
-    
-} catch (Exception $e) {
-    echo "Error: " . $e->getMessage() . "\n";
-}
+//To send data using the method socket.send(data).
+
+//For example, the line:
+socket.send("Hello");
 ?>
