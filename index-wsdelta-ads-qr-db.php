@@ -364,6 +364,22 @@ function handleTimeout() {
     location.reload(true);
 }
 
+    function BreakerOnService() {
+        $.ajax({
+            type: "POST",
+            url: "api/BreakerOn.php",
+            // data: {
+            //     id: id
+            // },
+            success: function(response) {
+                console.log(response);
+            },
+            error: function(error) {
+                console.error("AJAX request failed:", error);
+            }
+        });
+    }
+
     function stopParkeeService() {
         $.ajax({
             type: "POST",
