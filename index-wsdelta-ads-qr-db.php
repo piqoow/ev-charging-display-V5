@@ -223,14 +223,6 @@ echo '<script> var id = "' . $id . '";</script>';
         } else if (data['charger-status'] === 'Preparing' || data['charger-status'] === 'Available' && updateEvgateCalled === true) { //kondisi standby
             insertDelta();
             BreakerOnService();
-            ws.onmessage = function(event) {
-        console.log('Received message:', event.data);
-        // Lakukan sesuatu dengan pesan yang diterima dari server
-        // Reset timeout setiap kali menerima pesan
-        console.log("TIMEOUT");
-        resetTimeout();
-        ws.send("setr=0");
-    };
             $('#status_btn').html('Charging Ready...'); //dev
             $('#kwh').html('0.00 kWh');
             $('#time').html(`00:00:00`);
@@ -247,6 +239,14 @@ echo '<script> var id = "' . $id . '";</script>';
             // insertDelta();
             if (updateEvgateCalled === true) { // pada saat kondisi charging ke standby akan update dan insert data charging 
                 // insertDelta();
+            ws.onmessage = function(event) {
+        console.log('Received message:', event.data);
+        // Lakukan sesuatu dengan pesan yang diterima dari server
+        // Reset timeout setiap kali menerima pesan
+        console.log("TIMEOUT");
+        resetTimeout();
+        ws.send("setr=0");
+    };
                 document.getElementById('fullpage').style.display = 'block';
                 document.getElementById('chargingpage').style.display = 'none';
                 get_data_logcharging();
@@ -267,14 +267,6 @@ echo '<script> var id = "' . $id . '";</script>';
         } else if (data['charger-status'] === 'SuspendedEV' || data['charger-status'] === 'Unavailable' && updateEvgateCalled === true) { //kondisi standby
             insertDelta();
             BreakerOnService();
-            ws.onmessage = function(event) {
-        console.log('Received message:', event.data);
-        // Lakukan sesuatu dengan pesan yang diterima dari server
-        // Reset timeout setiap kali menerima pesan
-        console.log("TIMEOUT");
-        resetTimeout();
-        ws.send("setr=0");
-    };
             $('#status_btn').html('Charging Ready...'); //dev
             $('#kwh').html('0.00 kWh');
             $('#time').html(`00:00:00`);
@@ -291,6 +283,14 @@ echo '<script> var id = "' . $id . '";</script>';
             // insertDelta();
             if (updateEvgateCalled === true) { // pada saat kondisi charging ke standby akan update dan insert data charging 
                 // insertDelta();
+            ws.onmessage = function(event) {
+        console.log('Received message:', event.data);
+        // Lakukan sesuatu dengan pesan yang diterima dari server
+        // Reset timeout setiap kali menerima pesan
+        console.log("TIMEOUT");
+        resetTimeout();
+        ws.send("setr=0");
+    };
                 document.getElementById('fullpage').style.display = 'block';
                 document.getElementById('chargingpage').style.display = 'none';
                 get_data_logcharging();
@@ -311,14 +311,6 @@ echo '<script> var id = "' . $id . '";</script>';
         } else if (data['charger-status'] === 'Preparing' || data['charger-status'] === 'Available' && updateEvgateCalled === false) {
             //ads new
             BreakerOnService();
-            ws.onmessage = function(event) {
-        console.log('Received message:', event.data);
-        // Lakukan sesuatu dengan pesan yang diterima dari server
-        // Reset timeout setiap kali menerima pesan
-        console.log("TIMEOUT");
-        resetTimeout();
-        ws.send("setr=0");
-    };
             $('#status_btn').html('Charging Ready...');
             $('#kwh').html('0.00 kWh');
             $('#time').html(`00:00:00`);
