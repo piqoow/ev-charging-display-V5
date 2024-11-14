@@ -222,7 +222,6 @@ echo '<script> var id = "' . $id . '";</script>';
             updateEvgateCalled = true;
         } else if (data['charger-status'] === 'Preparing' || data['charger-status'] === 'Available' && updateEvgateCalled === true) { //kondisi standby
             insertDelta();
-            BreakerOnService();
             $('#status_btn').html('Charging Ready...'); //dev
             $('#kwh').html('0.00 kWh');
             $('#time').html(`00:00:00`);
@@ -266,7 +265,6 @@ echo '<script> var id = "' . $id . '";</script>';
             }
         } else if (data['charger-status'] === 'SuspendedEV' || data['charger-status'] === 'Unavailable' && updateEvgateCalled === true) { //kondisi standby
             insertDelta();
-            BreakerOnService();
             $('#status_btn').html('Charging Ready...'); //dev
             $('#kwh').html('0.00 kWh');
             $('#time').html(`00:00:00`);
@@ -310,7 +308,6 @@ echo '<script> var id = "' . $id . '";</script>';
             }
         } else if (data['charger-status'] === 'Preparing' || data['charger-status'] === 'Available' && updateEvgateCalled === false) {
             //ads new
-            BreakerOnService();
             $('#status_btn').html('Charging Ready...');
             $('#kwh').html('0.00 kWh');
             $('#time').html(`00:00:00`);
@@ -382,22 +379,6 @@ function handleTimeout() {
     // Contoh: mencoba untuk melakukan koneksi ulang
     location.reload(true);
 }
-
-    function BreakerOnService() {
-        $.ajax({
-            type: "POST",
-            url: "api/BreakerOn.php",
-            // data: {
-            //     id: id
-            // },
-            success: function(response) {
-                console.log(response);
-            },
-            error: function(error) {
-                console.error("AJAX request failed:", error);
-            }
-        });
-    }
 
     function stopParkeeService() {
         $.ajax({
