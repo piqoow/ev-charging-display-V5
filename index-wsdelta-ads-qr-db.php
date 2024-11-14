@@ -238,24 +238,18 @@ echo '<script> var id = "' . $id . '";</script>';
             // insertDelta();
             if (updateEvgateCalled === true) { // pada saat kondisi charging ke standby akan update dan insert data charging 
                 // insertDelta();
-            ws.onmessage = function(event) {
-        console.log('Received message:', event.data);
-        // Lakukan sesuatu dengan pesan yang diterima dari server
-        // Reset timeout setiap kali menerima pesan
-        console.log("TIMEOUT");
-        resetTimeout();
-        ws.send("setr=0");
-    };
+    //         ws.onmessage = function(event) {
+    //     console.log('Received message:', event.data);
+    //     console.log("TIMEOUT");
+    //     resetTimeout();
+    //     ws.send("setr=0");
+    // };
                 document.getElementById('fullpage').style.display = 'block';
                 document.getElementById('chargingpage').style.display = 'none';
                 get_data_logcharging();
                 startParkeeService();
 		$('#status_btn').html(`Finish Charging...`);
 	   $('.header').removeClass('header-run').addClass('header-idle'); //updatedev                            
-
-
-
-
                 setTimeout(function() {
                     get_data_logcharging();
                     console.log("delay 15 seconds");
@@ -281,24 +275,18 @@ echo '<script> var id = "' . $id . '";</script>';
             // insertDelta();
             if (updateEvgateCalled === true) { // pada saat kondisi charging ke standby akan update dan insert data charging 
                 // insertDelta();
-            ws.onmessage = function(event) {
-        console.log('Received message:', event.data);
-        // Lakukan sesuatu dengan pesan yang diterima dari server
-        // Reset timeout setiap kali menerima pesan
-        console.log("TIMEOUT");
-        resetTimeout();
-        ws.send("setr=0");
-    };
+    //         ws.onmessage = function(event) {
+    //     console.log('Received message:', event.data);
+    //     console.log("TIMEOUT");
+    //     resetTimeout();
+    //     ws.send("setr=0");
+    // };
                 document.getElementById('fullpage').style.display = 'block';
                 document.getElementById('chargingpage').style.display = 'none';
                 get_data_logcharging();
                 startParkeeService();
 		$('#status_btn').html(`Finish Charging...`);
 	   $('.header').removeClass('header-run').addClass('header-idle'); //updatedev                            
-
-
-
-
                 setTimeout(function() {
                     get_data_logcharging();
                     console.log("delay 15 seconds");
